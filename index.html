@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Xavier Vibes | Automotive World</title>
+
+<meta name="description" content="Explore amazing cars, JDM culture, modifications, reviews and automotive listings at Xavier Vibes.">
+
+<style>
+:root {
+    --bg: #090909;
+    --card: #151515;
+    --red: #ff3030;
+    --text: #ffffff;
+    --muted: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    background: rgba(8, 8, 8, 0.97);
+    border-bottom: 1px solid #252525;
+    padding: 17px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+nav a {
+    font-size: 13px;
+    color: #ddd;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--red);
+}
+
+.hero {
+    min-height: 570px;
+    padding: 90px 7%;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.94), rgba(0,0,0,.3)),
+      url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85")
+      center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tag {
+    color: var(--red);
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 8vw, 76px);
+    line-height: 1.05;
+    margin: 20px 0;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    color: var(--red);
+}
+
+.hero p {
+    color: #d0d0d0;
+    max-width: 500px;
+    margin-bottom: 28px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    padding: 13px 23px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.btn:hover {
+    background: #d91e1e;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #777;
+    margin-left: 8px;
+}
+
+section {
+    padding: 65px 6%;
+}
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-heading small {
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.section-heading h2 {
+    font-size: clamp(27px, 5vw, 38px);
+    margin-top: 6px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    background: #171717;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.filters {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.filter-btn {
+    background: #171717;
+    color: white;
+    border: 1px solid #333;
+    padding: 9px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #282828;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #555;
+}
+
+.card img {
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+    display: block;
+    background: #222;
+}
+
+.card-content {
+    padding: 18px;
+}
+
+.badge {
+    display: inline-block;
+    color: var(--red);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-top: 1px solid #292929;
+    padding-top: 14px;
+}
+
+.card-bottom strong {
+    color: var(--red);
+    font-size: 14px;
+}
+
+.small-btn {
+    background: #262626;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 8px 11px;
+    cursor: pointer;
+}
+
+.small-btn:hover {
+    background: var(--red);
+}
+
+.empty-message {
+    display: none;
+    color: var(--muted);
+    padding: 20px 0;
+}
+
+.dark-section {
+    background: #101010;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    padding: 25px;
+    background: #191919;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+}
+
+.feature .icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.review-card {
+    background: #171717;
+    padding: 25px;
+    border-left: 3px solid var(--red);
+    border-radius: 5px;
+}
+
+.review-card h3 {
+    margin: 10px 0;
+}
+
+.review-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.review-stars {
+    color: #ffc247;
+    letter-spacing: 3px;
+}
+
+.market-note {
+    background: #171717;
+    border: 1px solid #333;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 700px;
+}
+
+.market-note p {
+    color: var(--muted);
+    margin: 12px 0 20px;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.about-layout img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.about-layout p {
+    color: var(--muted);
+    margin: 15px 0;
+}
+
+footer {
+    background: #050505;
+    border-top: 1px solid #292929;
+    text-align: center;
+    padding: 35px 6%;
+}
+
+footer p {
+    color: #999;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 15px 0;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: var(--red);
+}
+
+@media (max-width: 850px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        padding: 5px 0;
+        gap: 20px;
+    }
+
+    nav a {
+        white-space: nowrap;
+    }
+
+    .car-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 540px) {
+    .hero {
+        min-height: 480px;
+        padding: 65px 6%;
+    }
+
+    section {
+        padding: 48px 5%;
+    }
+
+    .car-grid,
+    .feature-grid,
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 220px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box .btn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="#home" class="logo">XAVIER<span> VIBES.</span></a>
+
+    <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#cars">Cars</a>
+        <a href="#mods">Modifications</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#market">Marketplace</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">Welcome to the automotive world</div>
+
+        <h1>DRIVE YOUR<br><span>PASSION.</span></h1>
+
+        <p>
+            Discover incredible cars, explore JDM culture,
+            learn about modifications and enter a world
+            built for people who love automobiles.
+        </p>
+
+        <a href="#cars" class="btn">EXPLORE CARS ↗</a>
+        <a href="#about" class="btn btn-outline">OUR STORY</a>
+    </div>
+</section>
+
+<section id="cars">
+    <div class="section-heading">
+        <small>Find your next obsession</small>
+        <h2>Explore The Cars</h2>
+        <p>From Japanese legends to European performance machines.</p>
+    </div>
+
+    <div class="search-box">
+        <input
+            type="search"
+            id="carSearch"
+            placeholder="Search cars, brands or categories..."
+            aria-label="Search cars"
+        >
+        <button class="btn" id="searchBtn">SEARCH</button>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All Cars</button>
+        <button class="filter-btn" data-filter="jdm">JDM</button>
+        <button class="filter-btn" data-filter="sports">Sports</button>
+        <button class="filter-btn" data-filter="luxury">Luxury</button>
+        <button class="filter-btn" data-filter="muscle">Muscle</button>
+    </div>
+
+    <div class="car-grid" id="carGrid">
+
+        <article class="card car-item" data-category="jdm sports"
+            data-search="toyota supra japanese jdm sports">
+            <img
+                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80"
+                alt="Sports car"
+                loading="lazy"
+            >
+            <div class="card-content">
+                <span class="badge">JDM LEGEND</span>
+                <h3>Toyota Supra</h3>
+                <p>A legendary Japanese sports car with a passionate worldwide following.</p>
+                <div class="card-bottom">
+                    <strong>Iconic JDM</strong>
+                    <button class="small-btn details-btn"
+                        data-name="Toyota Supra"
+                        data-info="The Toyota Supra is famous for its inline-six engines, tuning potential and motorsport history. Specifications vary by generation.">
+                        DETAILS ↗
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card car-item" data-category="jdm sports"
+            data-search="nissan skyline gtr r34 japanese jdm">
+            <img
+                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80"
+                alt="Performance car"
+                loading="lazy"
+            >
+            <div class="card-content">
+                <span class="badge">JDM ICON</span>
+                <h3>Nissan Skyline GT-R</h3>
+                <p>A celebrated performance name with a rich Japanese motorsport heritage.</p>
+                <div class="card-bottom">
+                    <strong>Performance</strong>
+                    <button class="small-btn details-btn"
+                        data-name="Nissan Skyline GT-R"
+                        data-info="The Skyline GT-R became famous for its advanced all-wheel-drive systems, turbocharged engines and racing success. Specs depend on the model.">
+                        DETAILS ↗
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card car-item" data-category="jdm sports"
+            data-search="honda civic type r japanese hatchback">
+            <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+                alt="Performance automobile"
+                loading="lazy"
+            >
+            <div class="card-content">
+                <span class="badge">JAPANESE PERFORMANCE</span>
+                <h3>Honda Performance</h3>
+                <p>Explore the engineering and enthusiast culture behind Honda performance cars.</p>
+                <div class="card-bottom">
+                    <strong>Driver Focus</strong>
+                    <button class="small-btn details-btn"
+                        data-name="Honda Performance"
+                        data-info="Honda performance models are known for responsive engines, capable chassis and a strong enthusiast community. Features differ by model.">
+                        DETAILS ↗
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card car-item" data-category="luxury sports"
+            data-search="bmw m series german luxury performance">
+            <img
+                src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80"
+                alt="BMW automobile"
+                loading="lazy"
+            >
+            <div class="card-content">
+                <span class="badge">GERMAN ENGINEERING</span>
+                <h3>BMW M Series</h3>
+                <p>A blend of performance engineering, handling and everyday usability.</p>
+                <div class="card-bottom">
+                    <strong>Luxury Sport</strong>
+                    <button class="small-btn details-btn"
+                        data-name="BMW M Series"
+                        data-info="BMW M models focus on performance, chassis development and powerful engines. Equipment and performance vary by model year.">
+                        DETAILS ↗
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card car-item" data-category="muscle sports"
+            data-search="ford mustang american muscle car">
+            <img
+                src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80"
+                alt="Ford Mustang style automobile"
+                loading="lazy"
+            >
+            <div class="card-content">
+                <span class="badge">AMERICAN MUSCLE</span>
+                <h3>Ford Mustang</h3>
+                <p>A famous muscle-car name known for bold styling and powerful variants.</p>
+                <div class="card-bottom">
+                    <strong>Muscle</strong>
+                    <button class="small-btn details-btn"
+                        data-name="Ford Mustang"
+                        data-info="The Ford Mustang has a long history of American performance, with different engine options and driving characteristics across generations.">
+                        DETAILS ↗
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card car-item" data-category="luxury sports"
+            data-search="porsche 911 german luxury sports car">
+            <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+                alt="Luxury sports automobile"
+                loading="lazy"
+            >
+            <div class="card-content">
+                <span class="badge">SPORTS CAR</span>
+                <h3>Porsche 911</h3>
+                <p>A renowned sports-car family with decades of engineering development.</p>
+                <div class="card-bottom">
+                    <strong>Precision</strong>
+                    <button class="small-btn details-btn"
+                        data-name="Porsche 911"
+                        data-info="The Porsche 911 is known for its rear-engine layout, distinctive design and many road and motorsport variants.">
+                        DETAILS ↗
+                    </button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <p class="empty-message" id="emptyMessage">
+        No matching cars found. Try another search.
+    </p>
+</section>
+
+<section class="dark-section" id="mods">
+    <div class="section-heading">
+        <small>Build your dream machine</small>
+        <h2>Modification Zone</h2>
+        <p>Explore popular automotive customization styles.</p>
+    </div>
+
+    <div class="feature-grid">
+        <article class="feature">
+            <div class="icon">🛞</div>
+            <h3>Wheels & Rims</h3>
+            <p>Discover wheel designs, fitment basics and styles that complement different vehicles.</p>
+        </article>
+
+        <article class="feature">
+            <div class="icon">🪽</div>
+            <h3>Body Kits & Aero</h3>
+            <p>Explore bumpers, splitters, spoilers and aerodynamic styling.</p>
+        </article>
+
+        <article class="feature">
+            <div class="icon">⚙️</div>
+            <h3>Performance</h3>
+            <p>Learn about engine tuning, suspension, brakes and responsible upgrades.</p>
+        </article>
+
+        <article class="feature">
+            <div class="icon">🎨</div>
+            <h3>Paint & Wraps</h3>
+            <p>Explore different colors, vinyl wraps and custom finishes.</p>
+        </article>
+
+        <article class="feature">
+            <div class="icon">💡</div>
+            <h3>Lighting</h3>
+            <p>Learn about automotive lighting styles and road-legal upgrades.</p>
+        </article>
+
+        <article class="feature">
+            <div class="icon">🏁</div>
+            <h3>JDM Culture</h3>
+            <p>Discover Japanese car culture, iconic builds and motorsport heritage.</p>
+        </article>
+    </div>
+</section>
+
+<section id="reviews">
+    <div class="section-heading">
+        <small>Know before you drive</small>
+        <h2>Car Reviews & Guides</h2>
+        <p>Start exploring the details behind popular car families.</p>
+    </div>
+
+    <div class="feature-grid">
+        <article class="review-card">
+            <span class="badge">JAPANESE CARS</span>
+            <div class="review-stars">★★★★★</div>
+            <h3>Toyota Supra</h3>
+            <p>
+                A great subject for learning about turbocharging,
+                sports-car development and the tuning community.
+                The right choice depends on generation, condition and budget.
+            </p>
+        </article>
+
+        <article class="review-card">
+            <span class="badge">PERFORMANCE</span>
+            <div class="review-stars">★★★★★</div>
+            <h3>Nissan GT-R</h3>
+            <p>
+                A fascinating combination of performance technology,
+                all-wheel drive and motorsport influence.
+                Running costs can vary significantly.
+            </p>
+        </article>
+
+        <article class="review-card">
+            <span class="badge">LUXURY</span>
+            <div class="review-stars">★★★★★</div>
+            <h3>BMW M Cars</h3>
+            <p>
+                An interesting balance of handling, comfort and
+                performance. Compare maintenance costs and model
+                specifications before choosing one.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section class="dark-section" id="market">
+    <div class="section-heading">
+        <small>Your next car could be here</small>
+        <h2>Automotive Marketplace</h2>
+        <p>A starting point for future car listings.</p>
+    </div>
+
+    <div class="market-note">
+        <span class="badge">COMING SOON</span>
+        <h3>Find Your Dream Car</h3>
+        <p>
+            We're planning a marketplace where visitors can browse
+            vehicles, compare information and eventually submit
+            listings. This first version does not contain verified
+            cars for sale or a working listing submission system.
+        </p>
+        <a href="#cars" class="btn">EXPLORE FEATURED CARS</a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about-layout">
+        <div>
+            <div class="section-heading">
+                <small>More than just cars</small>
+                <h2>Welcome to Xavier Vibes.</h2>
+            </div>
+
+            <p>
+                Xavier Vibes is a growing automotive project
+                created for people who appreciate cars, design,
+                engineering and automotive culture.
+            </p>
+
+            <p>
+                From legendary Japanese machines to modern luxury
+                cars, our goal is to make exploring the automotive
+                world exciting and accessible.
+            </p>
+
+            <a href="#cars" class="btn">EXPLORE THE SITE</a>
+        </div>
+
+        <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80"
+            alt="Car featured on Xavier Vibes"
+            loading="lazy"
+        >
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <a href="#home" class="logo">XAVIER<span> VIBES.</span></a>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#cars">Cars</a>
+        <a href="#mods">Modifications</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#market">Marketplace</a>
+    </div>
+
+    <p>Built with passion for the automotive world.</p>
+    <p>© <span id="year"></span> Xavier Vibes. All rights reserved.</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById("carSearch");
+const searchButton = document.getElementById("searchBtn");
+const carItems = [...document.querySelectorAll(".car-item")];
+const filterButtons = [...document.querySelectorAll(".filter-btn")];
+const emptyMessage = document.getElementById("emptyMessage");
+
+let activeFilter = "all";
+
+function updateCars() {
+    const query = searchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    carItems.forEach(car => {
+        const category = car.dataset.category;
+        const searchData = (
+            car.dataset.search + " " + car.innerText
+        ).toLowerCase();
+
+        const matchesFilter =
+            activeFilter === "all" ||
+            category.split(" ").includes(activeFilter);
+
+        const matchesSearch = searchData.includes(query);
+        const show = matchesFilter && matchesSearch;
+
+        car.style.display = show ? "" : "none";
+
+        if (show) visibleCount++;
+    });
+
+    emptyMessage.style.display =
+        visibleCount === 0 ? "block" : "none";
+}
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+
+        filterButtons.forEach(item =>
+            item.classList.remove("active")
+        );
+
+        button.classList.add("active");
+        updateCars();
+    });
+});
+
+searchInput.addEventListener("input", updateCars);
+searchButton.addEventListener("click", updateCars);
+
+searchInput.addEventListener("keydown", event => {
+    if (event.key === "Enter") updateCars();
+});
+
+document.querySelectorAll(".details-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        alert(
+            button.dataset.name + "\n\n" +
+            button.dataset.info
+        );
+    });
+});
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
