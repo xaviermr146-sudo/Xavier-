@@ -3,452 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Xavier Vibes | Automotive World</title>
-
-<meta name="description" content="Explore amazing cars, JDM culture, modifications, reviews and automotive listings at Xavier Vibes.">
+<meta name="theme-color" content="#090909">
+<title>Xavier Vibes | Ultimate Car Hub</title>
 
 <style>
 :root {
-    --bg: #090909;
-    --card: #151515;
-    --red: #ff3030;
-    --text: #ffffff;
-    --muted: #aaaaaa;
+  --red: #ef233c;
+  --black: #090909;
+  --panel: #171717;
+  --white: #ffffff;
+  --gray: #bdbdbd;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 92%;
+  max-width: 1150px;
+  margin: auto;
 }
 
 header {
-    background: rgba(8, 8, 8, 0.97);
-    border-bottom: 1px solid #252525;
-    padding: 17px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.logo {
-    font-size: 23px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    white-space: nowrap;
-}
-
-.logo span {
-    color: var(--red);
+  background: #111;
+  border-bottom: 2px solid var(--red);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    gap: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-nav a {
-    font-size: 13px;
-    color: #ddd;
-    transition: 0.3s;
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.logo span,
+.red {
+  color: var(--red);
+}
+
+nav .links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 nav a:hover {
-    color: var(--red);
+  color: var(--red);
 }
 
 .hero {
-    min-height: 570px;
-    padding: 90px 7%;
-    display: flex;
-    align-items: center;
-    background:
-      linear-gradient(90deg, rgba(0,0,0,.94), rgba(0,0,0,.3)),
-      url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85")
-      center/cover no-repeat;
-}
-
-.hero-content {
-    max-width: 650px;
-}
-
-.tag {
-    color: var(--red);
-    font-size: 12px;
-    letter-spacing: 4px;
-    font-weight: bold;
-    text-transform: uppercase;
+  padding: 75px 0;
+  background:
+    linear-gradient(110deg, #090909 45%, #351016);
 }
 
 .hero h1 {
-    font-size: clamp(42px, 8vw, 76px);
-    line-height: 1.05;
-    margin: 20px 0;
-    font-weight: 900;
-}
-
-.hero h1 span {
-    color: var(--red);
+  font-size: clamp(38px, 8vw, 76px);
+  line-height: 1.05;
+  margin: 10px 0;
 }
 
 .hero p {
-    color: #d0d0d0;
-    max-width: 500px;
-    margin-bottom: 28px;
+  color: var(--gray);
+  max-width: 650px;
+  font-size: 18px;
 }
 
-.btn {
-    display: inline-block;
-    background: var(--red);
-    color: white;
-    padding: 13px 23px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .25s;
+button,
+.button {
+  border: 0;
+  border-radius: 7px;
+  padding: 12px 17px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 15px;
 }
 
-.btn:hover {
-    background: #d91e1e;
-    transform: translateY(-2px);
+.primary {
+  background: var(--red);
+  color: white;
 }
 
-.btn-outline {
-    background: transparent;
-    border: 1px solid #777;
-    margin-left: 8px;
+.secondary {
+  background: #292929;
+  color: white;
+  border: 1px solid #444;
 }
 
 section {
-    padding: 65px 6%;
+  padding: 45px 0;
 }
 
-.section-heading {
-    margin-bottom: 25px;
+h2 {
+  font-size: 30px;
+  margin: 0 0 8px;
 }
 
-.section-heading small {
-    color: var(--red);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: bold;
+.subtitle,
+.muted {
+  color: var(--gray);
 }
 
-.section-heading h2 {
-    font-size: clamp(27px, 5vw, 38px);
-    margin-top: 6px;
+.panel {
+  background: var(--panel);
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 12px;
 }
 
-.section-heading p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-top: 5px;
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
 }
 
-.search-box {
-    display: flex;
-    gap: 10px;
-    margin: 25px 0;
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--gray);
+  font-size: 14px;
 }
 
-.search-box input {
-    width: 100%;
-    min-width: 0;
-    padding: 14px;
-    background: #171717;
-    color: white;
-    border: 1px solid #333;
-    border-radius: 5px;
-    font-size: 15px;
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 7px;
+  background: #0b0b0b;
+  color: white;
+  border: 1px solid #444;
+  font-size: 16px;
 }
 
-.filters {
-    display: flex;
-    gap: 9px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--red);
 }
 
-.filter-btn {
-    background: #171717;
-    color: white;
-    border: 1px solid #333;
-    padding: 9px 15px;
-    border-radius: 30px;
-    cursor: pointer;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-    background: var(--red);
-    border-color: var(--red);
+.status {
+  color: var(--gray);
+  margin-top: 14px;
+  overflow-wrap: anywhere;
 }
 
 .car-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+  margin-top: 20px;
 }
 
-.card {
-    background: var(--card);
-    border: 1px solid #282828;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: .3s;
+.car-card {
+  background: var(--panel);
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #555;
+.car-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #252525;
+  display: block;
 }
 
-.card img {
-    width: 100%;
-    height: 205px;
-    object-fit: cover;
-    display: block;
-    background: #222;
-}
-
-.card-content {
-    padding: 18px;
+.car-info {
+  padding: 15px;
 }
 
 .badge {
-    display: inline-block;
-    color: var(--red);
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 7px;
-    text-transform: uppercase;
+  display: inline-block;
+  background: #42121a;
+  color: #ff9aa5;
+  border-radius: 20px;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: bold;
 }
 
-.card h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
+.price {
+  color: #ff596d;
+  font-size: 22px;
+  font-weight: 900;
 }
 
-.card p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 15px;
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 15px;
 }
 
-.card-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    border-top: 1px solid #292929;
-    padding-top: 14px;
+.result {
+  background: #101010;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px;
+  overflow-wrap: anywhere;
 }
 
-.card-bottom strong {
-    color: var(--red);
-    font-size: 14px;
-}
-
-.small-btn {
-    background: #262626;
-    color: white;
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 8px 11px;
-    cursor: pointer;
-}
-
-.small-btn:hover {
-    background: var(--red);
-}
-
-.empty-message {
-    display: none;
-    color: var(--muted);
-    padding: 20px 0;
-}
-
-.dark-section {
-    background: #101010;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.feature {
-    padding: 25px;
-    background: #191919;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-}
-
-.feature .icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-.feature h3 {
-    margin-bottom: 10px;
-}
-
-.feature p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.review-card {
-    background: #171717;
-    padding: 25px;
-    border-left: 3px solid var(--red);
-    border-radius: 5px;
-}
-
-.review-card h3 {
-    margin: 10px 0;
-}
-
-.review-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.review-stars {
-    color: #ffc247;
-    letter-spacing: 3px;
-}
-
-.market-note {
-    background: #171717;
-    border: 1px solid #333;
-    padding: 25px;
-    border-radius: 8px;
-    max-width: 700px;
-}
-
-.market-note p {
-    color: var(--muted);
-    margin: 12px 0 20px;
-}
-
-.about-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-    align-items: center;
-}
-
-.about-layout img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.about-layout p {
-    color: var(--muted);
-    margin: 15px 0;
+.notice {
+  background: #291116;
+  border-left: 3px solid var(--red);
+  padding: 12px;
+  margin-top: 16px;
+  color: #eee;
+  font-size: 14px;
 }
 
 footer {
-    background: #050505;
-    border-top: 1px solid #292929;
-    text-align: center;
-    padding: 35px 6%;
+  padding: 25px 0;
+  border-top: 1px solid #333;
+  color: var(--gray);
 }
 
-footer p {
-    color: #999;
-    font-size: 13px;
-    margin-top: 8px;
+@media (max-width: 750px) {
+  .car-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 18px;
-    margin: 15px 0;
-    font-size: 13px;
-}
+@media (max-width: 500px) {
+  .car-grid,
+  .results {
+    grid-template-columns: 1fr;
+  }
 
-.footer-links a:hover {
-    color: var(--red);
-}
+  .fields {
+    grid-template-columns: 1fr;
+  }
 
-@media (max-width: 850px) {
-    header {
-        flex-wrap: wrap;
-    }
-
-    nav {
-        width: 100%;
-        overflow-x: auto;
-        padding: 5px 0;
-        gap: 20px;
-    }
-
-    nav a {
-        white-space: nowrap;
-    }
-
-    .car-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .feature-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 540px) {
-    .hero {
-        min-height: 480px;
-        padding: 65px 6%;
-    }
-
-    section {
-        padding: 48px 5%;
-    }
-
-    .car-grid,
-    .feature-grid,
-    .about-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .card img {
-        height: 220px;
-    }
-
-    .search-box {
-        flex-direction: column;
-    }
-
-    .search-box .btn {
-        width: 100%;
-    }
+  .hero {
+    padding: 50px 0;
+  }
 }
 </style>
 </head>
@@ -456,426 +281,541 @@ footer p {
 <body>
 
 <header>
-    <a href="#home" class="logo">XAVIER<span> VIBES.</span></a>
+  <div class="container">
+    <nav>
+      <a href="#home" class="logo">
+        XAVIER <span>VIBES</span> 🚘
+      </a>
 
-    <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#cars">Cars</a>
-        <a href="#mods">Modifications</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#market">Marketplace</a>
+      <div class="links">
+        <a href="#catalogue">Catalogue</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#estimator">Price Estimator</a>
         <a href="#about">About</a>
+      </div>
     </nav>
+  </div>
 </header>
 
 <main>
 
 <section class="hero" id="home">
-    <div class="hero-content">
-        <div class="tag">Welcome to the automotive world</div>
+  <div class="container">
+    <p class="red"><strong>THE WORLD OF CARS</strong></p>
 
-        <h1>DRIVE YOUR<br><span>PASSION.</span></h1>
+    <h1>
+      FIND YOUR<br>
+      NEXT <span class="red">RIDE.</span>
+    </h1>
 
-        <p>
-            Discover incredible cars, explore JDM culture,
-            learn about modifications and enter a world
-            built for people who love automobiles.
-        </p>
-
-        <a href="#cars" class="btn">EXPLORE CARS ↗</a>
-        <a href="#about" class="btn btn-outline">OUR STORY</a>
-    </div>
-</section>
-
-<section id="cars">
-    <div class="section-heading">
-        <small>Find your next obsession</small>
-        <h2>Explore The Cars</h2>
-        <p>From Japanese legends to European performance machines.</p>
-    </div>
-
-    <div class="search-box">
-        <input
-            type="search"
-            id="carSearch"
-            placeholder="Search cars, brands or categories..."
-            aria-label="Search cars"
-        >
-        <button class="btn" id="searchBtn">SEARCH</button>
-    </div>
-
-    <div class="filters">
-        <button class="filter-btn active" data-filter="all">All Cars</button>
-        <button class="filter-btn" data-filter="jdm">JDM</button>
-        <button class="filter-btn" data-filter="sports">Sports</button>
-        <button class="filter-btn" data-filter="luxury">Luxury</button>
-        <button class="filter-btn" data-filter="muscle">Muscle</button>
-    </div>
-
-    <div class="car-grid" id="carGrid">
-
-        <article class="card car-item" data-category="jdm sports"
-            data-search="toyota supra japanese jdm sports">
-            <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80"
-                alt="Sports car"
-                loading="lazy"
-            >
-            <div class="card-content">
-                <span class="badge">JDM LEGEND</span>
-                <h3>Toyota Supra</h3>
-                <p>A legendary Japanese sports car with a passionate worldwide following.</p>
-                <div class="card-bottom">
-                    <strong>Iconic JDM</strong>
-                    <button class="small-btn details-btn"
-                        data-name="Toyota Supra"
-                        data-info="The Toyota Supra is famous for its inline-six engines, tuning potential and motorsport history. Specifications vary by generation.">
-                        DETAILS ↗
-                    </button>
-                </div>
-            </div>
-        </article>
-
-        <article class="card car-item" data-category="jdm sports"
-            data-search="nissan skyline gtr r34 japanese jdm">
-            <img
-                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80"
-                alt="Performance car"
-                loading="lazy"
-            >
-            <div class="card-content">
-                <span class="badge">JDM ICON</span>
-                <h3>Nissan Skyline GT-R</h3>
-                <p>A celebrated performance name with a rich Japanese motorsport heritage.</p>
-                <div class="card-bottom">
-                    <strong>Performance</strong>
-                    <button class="small-btn details-btn"
-                        data-name="Nissan Skyline GT-R"
-                        data-info="The Skyline GT-R became famous for its advanced all-wheel-drive systems, turbocharged engines and racing success. Specs depend on the model.">
-                        DETAILS ↗
-                    </button>
-                </div>
-            </div>
-        </article>
-
-        <article class="card car-item" data-category="jdm sports"
-            data-search="honda civic type r japanese hatchback">
-            <img
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
-                alt="Performance automobile"
-                loading="lazy"
-            >
-            <div class="card-content">
-                <span class="badge">JAPANESE PERFORMANCE</span>
-                <h3>Honda Performance</h3>
-                <p>Explore the engineering and enthusiast culture behind Honda performance cars.</p>
-                <div class="card-bottom">
-                    <strong>Driver Focus</strong>
-                    <button class="small-btn details-btn"
-                        data-name="Honda Performance"
-                        data-info="Honda performance models are known for responsive engines, capable chassis and a strong enthusiast community. Features differ by model.">
-                        DETAILS ↗
-                    </button>
-                </div>
-            </div>
-        </article>
-
-        <article class="card car-item" data-category="luxury sports"
-            data-search="bmw m series german luxury performance">
-            <img
-                src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80"
-                alt="BMW automobile"
-                loading="lazy"
-            >
-            <div class="card-content">
-                <span class="badge">GERMAN ENGINEERING</span>
-                <h3>BMW M Series</h3>
-                <p>A blend of performance engineering, handling and everyday usability.</p>
-                <div class="card-bottom">
-                    <strong>Luxury Sport</strong>
-                    <button class="small-btn details-btn"
-                        data-name="BMW M Series"
-                        data-info="BMW M models focus on performance, chassis development and powerful engines. Equipment and performance vary by model year.">
-                        DETAILS ↗
-                    </button>
-                </div>
-            </div>
-        </article>
-
-        <article class="card car-item" data-category="muscle sports"
-            data-search="ford mustang american muscle car">
-            <img
-                src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80"
-                alt="Ford Mustang style automobile"
-                loading="lazy"
-            >
-            <div class="card-content">
-                <span class="badge">AMERICAN MUSCLE</span>
-                <h3>Ford Mustang</h3>
-                <p>A famous muscle-car name known for bold styling and powerful variants.</p>
-                <div class="card-bottom">
-                    <strong>Muscle</strong>
-                    <button class="small-btn details-btn"
-                        data-name="Ford Mustang"
-                        data-info="The Ford Mustang has a long history of American performance, with different engine options and driving characteristics across generations.">
-                        DETAILS ↗
-                    </button>
-                </div>
-            </div>
-        </article>
-
-        <article class="card car-item" data-category="luxury sports"
-            data-search="porsche 911 german luxury sports car">
-            <img
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
-                alt="Luxury sports automobile"
-                loading="lazy"
-            >
-            <div class="card-content">
-                <span class="badge">SPORTS CAR</span>
-                <h3>Porsche 911</h3>
-                <p>A renowned sports-car family with decades of engineering development.</p>
-                <div class="card-bottom">
-                    <strong>Precision</strong>
-                    <button class="small-btn details-btn"
-                        data-name="Porsche 911"
-                        data-info="The Porsche 911 is known for its rear-engine layout, distinctive design and many road and motorsport variants.">
-                        DETAILS ↗
-                    </button>
-                </div>
-            </div>
-        </article>
-
-    </div>
-
-    <p class="empty-message" id="emptyMessage">
-        No matching cars found. Try another search.
+    <p>
+      Discover car brands, explore vehicle models, browse
+      featured listings, and estimate used-car values.
+      Welcome to Xavier Vibes.
     </p>
+
+    <a class="button primary" href="#catalogue">
+      Explore Cars
+    </a>
+
+    <a class="button secondary" href="#marketplace">
+      Browse Listings
+    </a>
+  </div>
 </section>
 
-<section class="dark-section" id="mods">
-    <div class="section-heading">
-        <small>Build your dream machine</small>
-        <h2>Modification Zone</h2>
-        <p>Explore popular automotive customization styles.</p>
+<section id="catalogue">
+  <div class="container">
+    <h2>🌍 Worldwide Car Catalogue</h2>
+
+    <p class="subtitle">
+      Search available vehicle makes and models.
+    </p>
+
+    <div class="panel">
+
+      <div class="fields">
+        <div>
+          <label for="vehicleYear">Model year</label>
+          <input id="vehicleYear" type="number"
+                 min="1981" max="2027" value="2020">
+        </div>
+
+        <div>
+          <label for="vehicleType">Vehicle type</label>
+          <select id="vehicleType">
+            <option value="car">Cars</option>
+            <option value="truck">Trucks</option>
+            <option value="motorcycle">Motorcycles</option>
+            <option value="bus">Buses</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="make">Car brand</label>
+          <input id="make" list="makeOptions"
+                 placeholder="e.g. Toyota">
+          <datalist id="makeOptions"></datalist>
+        </div>
+
+        <div>
+          <label for="modelFilter">Model name (optional)</label>
+          <input id="modelFilter"
+                 placeholder="e.g. Corolla">
+        </div>
+      </div>
+
+      <button class="primary" id="loadMakes">
+        Load Car Brands
+      </button>
+
+      <button class="secondary" id="findModels">
+        Find Models
+      </button>
+
+      <p class="status" id="catalogueStatus" aria-live="polite">
+        Connect to the vehicle database by tapping
+        Load Car Brands.
+      </p>
+
+      <div id="modelResults" class="results"></div>
+
+      <div class="notice">
+        This catalogue uses a public US government vehicle database.
+        Coverage varies by make, year, and market. It does not
+        contain every car worldwide or provide car prices.
+      </div>
+
     </div>
-
-    <div class="feature-grid">
-        <article class="feature">
-            <div class="icon">🛞</div>
-            <h3>Wheels & Rims</h3>
-            <p>Discover wheel designs, fitment basics and styles that complement different vehicles.</p>
-        </article>
-
-        <article class="feature">
-            <div class="icon">🪽</div>
-            <h3>Body Kits & Aero</h3>
-            <p>Explore bumpers, splitters, spoilers and aerodynamic styling.</p>
-        </article>
-
-        <article class="feature">
-            <div class="icon">⚙️</div>
-            <h3>Performance</h3>
-            <p>Learn about engine tuning, suspension, brakes and responsible upgrades.</p>
-        </article>
-
-        <article class="feature">
-            <div class="icon">🎨</div>
-            <h3>Paint & Wraps</h3>
-            <p>Explore different colors, vinyl wraps and custom finishes.</p>
-        </article>
-
-        <article class="feature">
-            <div class="icon">💡</div>
-            <h3>Lighting</h3>
-            <p>Learn about automotive lighting styles and road-legal upgrades.</p>
-        </article>
-
-        <article class="feature">
-            <div class="icon">🏁</div>
-            <h3>JDM Culture</h3>
-            <p>Discover Japanese car culture, iconic builds and motorsport heritage.</p>
-        </article>
-    </div>
+  </div>
 </section>
 
-<section id="reviews">
-    <div class="section-heading">
-        <small>Know before you drive</small>
-        <h2>Car Reviews & Guides</h2>
-        <p>Start exploring the details behind popular car families.</p>
+<section id="marketplace">
+  <div class="container">
+    <h2>🏪 Car Marketplace</h2>
+
+    <p class="subtitle">
+      Explore example listings and prices.
+    </p>
+
+    <div>
+      <label for="listingSearch">Search featured cars</label>
+      <input id="listingSearch"
+             placeholder="Search Toyota, BMW, Supra...">
     </div>
 
-    <div class="feature-grid">
-        <article class="review-card">
-            <span class="badge">JAPANESE CARS</span>
-            <div class="review-stars">★★★★★</div>
-            <h3>Toyota Supra</h3>
-            <p>
-                A great subject for learning about turbocharging,
-                sports-car development and the tuning community.
-                The right choice depends on generation, condition and budget.
-            </p>
-        </article>
+    <div id="carGrid" class="car-grid"></div>
 
-        <article class="review-card">
-            <span class="badge">PERFORMANCE</span>
-            <div class="review-stars">★★★★★</div>
-            <h3>Nissan GT-R</h3>
-            <p>
-                A fascinating combination of performance technology,
-                all-wheel drive and motorsport influence.
-                Running costs can vary significantly.
-            </p>
-        </article>
-
-        <article class="review-card">
-            <span class="badge">LUXURY</span>
-            <div class="review-stars">★★★★★</div>
-            <h3>BMW M Cars</h3>
-            <p>
-                An interesting balance of handling, comfort and
-                performance. Compare maintenance costs and model
-                specifications before choosing one.
-            </p>
-        </article>
+    <div class="notice">
+      Important: These are demonstration listings, not verified
+      cars for sale. Replace the example prices and details with
+      genuine listings before advertising vehicles.
     </div>
+  </div>
 </section>
 
-<section class="dark-section" id="market">
-    <div class="section-heading">
-        <small>Your next car could be here</small>
-        <h2>Automotive Marketplace</h2>
-        <p>A starting point for future car listings.</p>
-    </div>
+<section id="estimator">
+  <div class="container">
+    <h2>💰 Used-Car Price Estimator</h2>
 
-    <div class="market-note">
-        <span class="badge">COMING SOON</span>
-        <h3>Find Your Dream Car</h3>
-        <p>
-            We're planning a marketplace where visitors can browse
-            vehicles, compare information and eventually submit
-            listings. This first version does not contain verified
-            cars for sale or a working listing submission system.
-        </p>
-        <a href="#cars" class="btn">EXPLORE FEATURED CARS</a>
+    <p class="subtitle">
+      Enter a comparable market price to calculate a rough value.
+    </p>
+
+    <div class="panel">
+      <div class="fields">
+
+        <div>
+          <label for="marketPrice">
+            Comparable price in USD ($)
+          </label>
+          <input id="marketPrice" type="number"
+                 min="1" placeholder="e.g. 12000">
+        </div>
+
+        <div>
+          <label for="estimateYear">Model year</label>
+          <input id="estimateYear" type="number"
+                 min="1950" max="2027" placeholder="e.g. 2018">
+        </div>
+
+        <div>
+          <label for="mileage">Mileage in miles</label>
+          <input id="mileage" type="number"
+                 min="0" placeholder="e.g. 80000">
+        </div>
+
+        <div>
+          <label for="condition">Vehicle condition</label>
+          <select id="condition">
+            <option value="1.08">Excellent</option>
+            <option value="1" selected>Good</option>
+            <option value="0.82">Fair</option>
+            <option value="0.6">Poor</option>
+          </select>
+        </div>
+
+      </div>
+
+      <button class="primary" id="calculatePrice">
+        Estimate Car Value
+      </button>
+
+      <div id="estimateResult" class="status" aria-live="polite">
+        Your estimated price will appear here.
+      </div>
+
+      <div class="notice">
+        This is a basic illustrative calculator, not a live
+        worldwide valuation service. It uses a comparable price
+        you provide and simple age, mileage, and condition
+        adjustments. Actual prices can differ significantly.
+      </div>
     </div>
+  </div>
 </section>
 
 <section id="about">
-    <div class="about-layout">
-        <div>
-            <div class="section-heading">
-                <small>More than just cars</small>
-                <h2>Welcome to Xavier Vibes.</h2>
-            </div>
+  <div class="container">
+    <div class="panel">
+      <h2>About Xavier Vibes</h2>
 
-            <p>
-                Xavier Vibes is a growing automotive project
-                created for people who appreciate cars, design,
-                engineering and automotive culture.
-            </p>
+      <p>
+        Xavier Vibes is a car discovery and marketplace project
+        built for automotive fans around the world.
+      </p>
 
-            <p>
-                From legendary Japanese machines to modern luxury
-                cars, our goal is to make exploring the automotive
-                world exciting and accessible.
-            </p>
-
-            <a href="#cars" class="btn">EXPLORE THE SITE</a>
-        </div>
-
-        <img
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80"
-            alt="Car featured on Xavier Vibes"
-            loading="lazy"
-        >
+      <p class="subtitle">
+        Explore cars, learn about vehicle models, and compare
+        listings. Always check vehicle history, condition,
+        seller details, and availability before buying.
+      </p>
     </div>
+  </div>
 </section>
 
 </main>
 
 <footer>
-    <a href="#home" class="logo">XAVIER<span> VIBES.</span></a>
-
-    <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#cars">Cars</a>
-        <a href="#mods">Modifications</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#market">Marketplace</a>
-    </div>
-
-    <p>Built with passion for the automotive world.</p>
-    <p>© <span id="year"></span> Xavier Vibes. All rights reserved.</p>
+  <div class="container">
+    © <span id="currentYear"></span> Xavier Vibes.
+    Built for car lovers. 🏁
+  </div>
 </footer>
 
 <script>
-const searchInput = document.getElementById("carSearch");
-const searchButton = document.getElementById("searchBtn");
-const carItems = [...document.querySelectorAll(".car-item")];
-const filterButtons = [...document.querySelectorAll(".filter-btn")];
-const emptyMessage = document.getElementById("emptyMessage");
+const API =
+  "https://vpic.nhtsa.dot.gov/api/vehicles/";
 
-let activeFilter = "all";
+const byId = id => document.getElementById(id);
 
-function updateCars() {
-    const query = searchInput.value.trim().toLowerCase();
-    let visibleCount = 0;
+byId("currentYear").textContent =
+  new Date().getFullYear();
 
-    carItems.forEach(car => {
-        const category = car.dataset.category;
-        const searchData = (
-            car.dataset.search + " " + car.innerText
-        ).toLowerCase();
+/* DEMONSTRATION LISTINGS
+   These are examples, not verified offers. */
 
-        const matchesFilter =
-            activeFilter === "all" ||
-            category.split(" ").includes(activeFilter);
+const cars = [
+  {
+    make: "Toyota",
+    model: "Celica GT-Four",
+    year: 1991,
+    price: 15000,
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+    description: "Classic Japanese performance coupe"
+  },
+  {
+    make: "Toyota",
+    model: "Supra",
+    year: 1998,
+    price: 35000,
+    image: "https://images.unsplash.com/photo-1614200187524-dc4b8920a7d9?auto=format&fit=crop&w=900&q=80",
+    description: "Iconic Japanese sports car"
+  },
+  {
+    make: "Nissan",
+    model: "Skyline GT-R",
+    year: 2000,
+    price: 40000,
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=900&q=80",
+    description: "Japanese performance legend"
+  },
+  {
+    make: "BMW",
+    model: "M4",
+    year: 2022,
+    price: 45000,
+    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80",
+    description: "Modern performance coupe"
+  },
+  {
+    make: "Mercedes-Benz",
+    model: "C-Class",
+    year: 2021,
+    price: 32000,
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=80",
+    description: "Premium everyday sedan"
+  },
+  {
+    make: "Porsche",
+    model: "911",
+    year: 2020,
+    price: 85000,
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+    description: "Iconic sports car"
+  }
+];
 
-        const matchesSearch = searchData.includes(query);
-        const show = matchesFilter && matchesSearch;
+function renderCars(search = "") {
+  const grid = byId("carGrid");
 
-        car.style.display = show ? "" : "none";
+  const filtered = cars.filter(car =>
+    `${car.make} ${car.model} ${car.year}`
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
 
-        if (show) visibleCount++;
-    });
+  if (!filtered.length) {
+    grid.innerHTML =
+      "<p>No matching example listings found.</p>";
+    return;
+  }
 
-    emptyMessage.style.display =
-        visibleCount === 0 ? "block" : "none";
+  grid.innerHTML = filtered.map(car => `
+    <article class="car-card">
+      <img
+        src="${car.image}"
+        alt="${car.year} ${car.make} ${car.model}"
+        loading="lazy"
+        onerror="this.style.display='none'">
+
+      <div class="car-info">
+        <span class="badge">DEMO LISTING</span>
+
+        <h3>${car.year} ${car.make} ${car.model}</h3>
+
+        <p class="muted">${car.description}</p>
+
+        <div class="price">
+          $${car.price.toLocaleString("en-US")}
+        </div>
+
+        <p class="muted">
+          Example price — not a confirmed offer.
+        </p>
+      </div>
+    </article>
+  `).join("");
 }
 
-filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        activeFilter = button.dataset.filter;
+renderCars();
 
-        filterButtons.forEach(item =>
-            item.classList.remove("active")
-        );
+byId("listingSearch").addEventListener("input", event => {
+  renderCars(event.target.value);
+});
 
-        button.classList.add("active");
-        updateCars();
+/* PUBLIC VEHICLE DATABASE */
+
+async function getVehicleData(path) {
+  const response = await fetch(API + path);
+
+  if (!response.ok) {
+    throw new Error("Database request failed");
+  }
+
+  return response.json();
+}
+
+byId("loadMakes").addEventListener("click", async () => {
+  const status = byId("catalogueStatus");
+  const options = byId("makeOptions");
+
+  status.textContent = "Loading car brands...";
+  options.innerHTML = "";
+
+  try {
+    const type = byId("vehicleType").value;
+
+    const data = await getVehicleData(
+      "GetMakesForVehicleType/" +
+      encodeURIComponent(type) +
+      "?format=json"
+    );
+
+    const makes = [
+      ...new Set(
+        (data.Results || [])
+          .map(item => item.MakeName)
+          .filter(Boolean)
+      )
+    ].sort();
+
+    options.innerHTML = makes.map(make => {
+      const option = document.createElement("option");
+      option.value = make;
+      return option.outerHTML;
+    }).join("");
+
+    status.textContent =
+      `Loaded ${makes.length} brands. Enter a brand above, ` +
+      "then tap Find Models.";
+
+  } catch (error) {
+    status.textContent =
+      "Unable to load brands. Check your internet connection " +
+      "and try again.";
+  }
+});
+
+byId("findModels").addEventListener("click", async () => {
+  const status = byId("catalogueStatus");
+  const output = byId("modelResults");
+
+  const make = byId("make").value.trim();
+  const year = Number(byId("vehicleYear").value);
+  const filter = byId("modelFilter")
+    .value.trim().toLowerCase();
+
+  output.innerHTML = "";
+
+  if (!make) {
+    status.textContent =
+      "Enter a brand first, for example Toyota.";
+    return;
+  }
+
+  if (
+    !Number.isInteger(year) ||
+    year < 1981 ||
+    year > new Date().getFullYear() + 1
+  ) {
+    status.textContent = "Enter a valid model year.";
+    return;
+  }
+
+  status.textContent = "Searching for models...";
+
+  try {
+    const data = await getVehicleData(
+      "GetModelsForMakeYear/make/" +
+      encodeURIComponent(make) +
+      "/modelyear/" +
+      year +
+      "?format=json"
+    );
+
+    let models = (data.Results || [])
+      .map(item => item.Model_Name)
+      .filter(Boolean);
+
+    if (filter) {
+      models = models.filter(model =>
+        model.toLowerCase().includes(filter)
+      );
+    }
+
+    models = [...new Set(models)].sort();
+
+    if (!models.length) {
+      status.textContent =
+        "No matching models found. Try another year, " +
+        "brand spelling, or search term.";
+      return;
+    }
+
+    status.textContent =
+      `Found ${models.length} model names in this database.`;
+
+    models.slice(0, 100).forEach(model => {
+      const card = document.createElement("div");
+      card.className = "result";
+
+      const name = document.createElement("strong");
+      name.textContent = `${make} ${model}`;
+
+      const details = document.createElement("div");
+      details.className = "muted";
+      details.textContent = `Model year: ${year}`;
+
+      card.append(name, details);
+      output.appendChild(card);
     });
+
+  } catch (error) {
+    status.textContent =
+      "Unable to retrieve models. Check your connection " +
+      "and try again.";
+  }
 });
 
-searchInput.addEventListener("input", updateCars);
-searchButton.addEventListener("click", updateCars);
+/* BASIC PRICE ESTIMATOR */
 
-searchInput.addEventListener("keydown", event => {
-    if (event.key === "Enter") updateCars();
-});
+byId("calculatePrice").addEventListener("click", () => {
+  const base = Number(byId("marketPrice").value);
+  const year = Number(byId("estimateYear").value);
+  const mileage = Number(byId("mileage").value);
+  const condition = Number(byId("condition").value);
 
-document.querySelectorAll(".details-btn").forEach(button => {
-    button.addEventListener("click", () => {
-        alert(
-            button.dataset.name + "\n\n" +
-            button.dataset.info
-        );
+  const now = new Date().getFullYear();
+  const result = byId("estimateResult");
+
+  if (
+    !(base > 0) ||
+    !Number.isInteger(year) ||
+    year < 1950 ||
+    year > now + 1 ||
+    !Number.isFinite(mileage) ||
+    mileage < 0
+  ) {
+    result.textContent =
+      "Enter a valid comparable price, model year, " +
+      "and mileage.";
+    return;
+  }
+
+  const age = Math.max(0, now - year);
+
+  const ageFactor = Math.max(
+    0.35,
+    1 - Math.max(0, age - 3) * 0.035
+  );
+
+  const mileageFactor = Math.max(
+    0.55,
+    1 - Math.max(0, mileage - 30000) / 100000 * 0.12
+  );
+
+  const estimate =
+    base * ageFactor * mileageFactor * condition;
+
+  const low = estimate * 0.85;
+  const high = estimate * 1.15;
+
+  const money = value =>
+    value.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0
     });
-});
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+  result.replaceChildren();
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Estimated value range";
+
+  const value = document.createElement("p");
+  value.className = "price";
+  value.textContent = `${money(low)} – ${money(high)}`;
+
+  const explanation = document.createElement("p");
+  explanation.className = "muted";
+  explanation.textContent =
+    "This is a rough estimate based on your comparable price, " +
+    "vehicle age, mileage, and selected condition. It is not " +
+    "a live market valuation.";
+
+  result.append(heading, value, explanation);
+});
 </script>
 
 </body>
