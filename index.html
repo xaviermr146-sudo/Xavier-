@@ -721,24 +721,53 @@ byId("findModels").addEventListener("click", async () => {
         "No matching models found. Try another year, " +
         "brand spelling, or search term.";
       return;
-    }https://github.com/xaviermr146-sudo/Xavier-/edit/main/index.html
+    }
 
     status.textContent =
       `Found ${models.length} model names in this database.`;
-    models.slice(0, 100).forEach(model => {
-      const card = document.createElement("div");
-      card.className = "result";
+  models.slice(0, 100).forEach(model => {
+  const card = document.createElement("div");
+  card.className = "result";
+  card.style.cursor = "pointer";
 
-      const name = document.createElement("strong");
-      name.textContent = `${make} ${model}`;
+  const name = document.createElement("strong");
+  name.textContent = `${make} ${model}`;
 
-      const details = document.createElement("div");
-      details.className = "muted";
-      details.textContent = `Model year: ${year}`;
+  const details = document.createElement("p");
+  details.className = "muted";
+  details.textContent = `Model year: ${year}`;
 
-      card.append(name, details);
-      output.appendChild(card);
+  const hint = document.createElement("p");
+  hint.className = "muted";
+  hint.textContent = "Tap to view car details →";
+
+  card.append(name, details, hint);
+
+  card.addEventListener("click", () => {
+    const params = new URLSearchParams({
+      make: make,
+      model: model,
+      year: String(year)
     });
+
+    window.location.href = `car.html?${params.toString()}`;
+  });
+
+  output.appendChild(card);
+});
+    
+    
+
+      
+      
+
+      
+      
+    
+
+      
+      
+    
 
   } catch (error) {
     status.textContent =
