@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Details | Xavier Vibes</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #e50914;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 25px auto;
+      padding: 20px;
+    }
+
+    .car-card {
+      background: #181818;
+      border: 1px solid #333;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .car-image {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .details {
+      padding: 20px;
+    }
+
+    .price {
+      color: #ff4040;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .muted {
+      color: #bbb;
+    }
+
+    a.button {
+      display: inline-block;
+      background: #e50914;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>XAVIER VIBES</h1>
+    <p>Car Details</p>
+  </header>
+
+  <main class="container">
+    <div class="car-card">
+      <img id="carImage" class="car-image"
+        src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80"
+        alt="Car photo">
+
+      <div class="details">
+        <h2 id="carName">Loading car...</h2>
+        <p id="carYear" class="muted"></p>
+
+        <p class="price" id="carPrice">
+          Price estimate unavailable
+        </p>
+
+        <h3>About this car</h3>
+        <p id="carDescription">
+          Information about this model may vary by year and market.
+        </p>
+
+        <p class="muted">
+          The image is illustrative. The displayed price is an estimate,
+          not a verified offer for this specific vehicle.
+        </p>
+
+        <a class="button" href="index.html">
+          ← Back to Car Catalogue
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const make = params.get("make") || "Unknown make";
+    const model = params.get("model") || "Unknown model";
+    const year = params.get("year") || "Year unavailable";
+
+    document.getElementById("carName").textContent =
+      `${make} ${model}`;
+
+    document.getElementById("carYear").textContent =
+      `Model year: ${year}`;
+
+    document.getElementById("carDescription").textContent =
+      `Explore the ${year} ${make} ${model}. Exact engine options, features, and specifications depend on the vehicle version and market.`;
+
+    document.getElementById("carPrice").textContent =
+      "Price estimate unavailable";
+  </script>
+</body>
+</html>
