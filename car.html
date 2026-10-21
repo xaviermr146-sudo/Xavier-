@@ -139,8 +139,9 @@
     document.getElementById("carDescription").textContent =
       `Explore the ${year} ${make} ${model}. Exact engine options, features, and specifications depend on the vehicle version and market.`;
 
-    document.getElementById("carPrice").textContent =
-      "Price estimate unavailable";
+  document.getElementById("carPrice").textContent =
+  "See current asking prices below.";
+    
     // Xavier Vibes: Load current car listings
 async function loadCarListings() {
   const priceElement = document.getElementById("askingPrice");
