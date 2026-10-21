@@ -141,6 +141,145 @@
 
     document.getElementById("carPrice").textContent =
       "Price estimate unavailable";
+    // Xavier Vibes: Load current car listings
+async function loadCarListings() {
+  const priceElement = document.getElementById("askingPrice");
+  const sourceElement = document.getElementById("askingSource");
+  const historyElement = document.getElementById("historicalPrice");
+  const historySource = document.getElementById("historicalSource");
+
+  if (priceElement) {
+    priceElement.textContent = "Loading available listings...";
+  }
+
+  if (sourceElement) {
+    sourceElement.textContent = "Searching current US listings.";
+  }
+
+  try {
+    const params = new URLSearchParams({
+      make: make,
+      model: model,
+      year: year
+    });
+
+    const response = await fetch(
+      `/api/listings?${params.toString()}`
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Unable to load listings.");
+    }
+
+    const listings = Array.isArray(data.listings)
+      ? data.listings
+      : [];
+
+    if (!listings.length) {
+      if (priceElement) {
+        priceElement.textContent =
+          "No matching listings were returned.";
+      }
+
+      if (sourceElement) {
+        sourceElement.textContent =
+          "No current asking prices are available for this search.";
+      }
+
+      return;
+    }
+
+    if (priceElement) {
+      priceElement.textContent =
+        `${listings.length} matching listings found.`;
+    }
+
+    if (sourceElement) {
+      sourceElement.textContent =
+        "Source: Vehicles.dev. US advertised prices; individual listings have not been independently verified.";
+    }
+
+    let results = document.getElementById("listingResults");
+
+    if (!results && priceElement) {
+      results = document.createElement("div");
+      results.id = "listingResults";
+      results.className = "market-listings";
+      priceElement.insertAdjacentElement("afterend", results);
+    }
+
+    if (results) {
+      results.replaceChildren();
+
+      listings.forEach((car) => {
+        const item = document.createElement("article");
+        item.className = "market-item";
+
+        const title = document.createElement("h4");
+        title.textContent =
+          `${car.year || ""} ${car.make || ""} ${car.model || ""} ${car.trim || ""}`
+            .trim();
+
+        const price = document.createElement("p");
+        const amount = Number(car.price);
+
+        price.textContent =
+          car.price !== null && car.price !== "" &&
+          Number.isFinite(amount) && amount > 0
+            ? `Asking price: $${amount.toLocaleString("en-US")}`
+            : "Asking price unavailable";
+
+        const details = document.createElement("p");
+        details.className = "muted";
+
+        const mileage = Number(car.mileage);
+        const mileageText =
+          car.mileage !== null && Number.isFinite(mileage)
+            ? `${mileage.toLocaleString("en-US")} miles`
+            : "Mileage unavailable";
+
+        details.textContent =
+          `${mileageText} · ${car.location || "Location unavailable"}`;
+
+        const note = document.createElement("p");
+        note.className = "muted";
+        note.textContent =
+          "Advertised price; confirm the listing and vehicle condition with the seller.";
+
+        item.append(title, price, details, note);
+        results.appendChild(item);
+      });
+    }
+
+    // Historical prices require a separate verified data source.
+    if (historyElement) {
+      historyElement.textContent =
+        "Historical sale prices are not connected yet.";
+    }
+
+    if (historySource) {
+      historySource.textContent =
+        "A separate historical sales data source is required.";
+    }
+
+  } catch (error) {
+    if (priceElement) {
+      priceElement.textContent =
+        "Car listings could not be loaded.";
+    }
+
+    if (sourceElement) {
+      sourceElement.textContent =
+        "Please try again later.";
+    }
+
+    console.error("Xavier Vibes listings error:", error);
+  }
+}
+
+loadCarListings()
   </script>
 </body>
 </html>
