@@ -131,14 +131,20 @@
     const year = params.get("year") || "Year unavailable";
     const carImage = document.getElementById("carImage");
 
-if (make === "Toyota") {
-  carImage.src = "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80";
-} else if (make === "BMW") {
-  carImage.src = "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80";
-} else if (make === "Mercedes") {
-  carImage.src = "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80";
-}
+const carPhotos = {
+  "Toyota Corolla": "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?auto=format&fit=crop&w=1200&q=80",
+  "Toyota Camry": "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80",
+  "Toyota Supra": "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=80",
+  "BMW M3": "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80",
+  "Mercedes C-Class": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80"
+};
 
+const carKey = `${make} ${model}`;
+
+if (carImage && carPhotos[carKey]) {
+  carImage.src = carPhotos[carKey];
+  carImage.alt = `${make} ${model} photo`;
+}
     document.getElementById("carName").textContent =
       `${make} ${model}`;
 
