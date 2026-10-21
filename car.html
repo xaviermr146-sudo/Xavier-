@@ -131,17 +131,6 @@
     const year = params.get("year") || "Year unavailable";
 
     document.getElementById("carName").textContent =
-      const carImage = document.getElementById("carImage");
-const carPhotos = {
-  Toyota: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=1200&q=80",
-  BMW: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80",
-  Mercedes: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80"
-};
-
-if (carImage && carPhotos[make]) {
-  carImage.src = carPhotos[make];
-  carImage.alt = `${make} ${model} car photo`;
-}
       `${make} ${model}`;
 
     document.getElementById("carYear").textContent =
