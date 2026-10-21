@@ -1030,6 +1030,47 @@ byId("calculatePrice").addEventListener("click", () => {
   </p>
 
 </section>
+  <!-- XAVIER VIBES VEHICLE INQUIRY FORM -->
+<section id="vehicle-inquiry" style="padding:30px 18px; background:#181818; color:white; font-family:Arial,sans-serif;">
+
+  <h2 style="text-align:center; color:#d4af37;">📩 Vehicle Inquiry</h2>
+
+  <p style="text-align:center;">
+    Interested in a classic car? Send us your inquiry.
+  </p>
+
+  <form action="mailto:YOUR_EMAIL_HERE" method="post" enctype="text/plain"
+        style="max-width:550px; margin:20px auto;">
+
+    <label for="buyerName">Your name</label>
+    <input id="buyerName" name="Name" type="text" required
+           style="width:100%; box-sizing:border-box; padding:12px; margin:8px 0 16px;">
+
+    <label for="buyerCountry">Your country</label>
+    <input id="buyerCountry" name="Country" type="text" required
+           style="width:100%; box-sizing:border-box; padding:12px; margin:8px 0 16px;">
+
+    <label for="carInterest">Car you're interested in</label>
+    <input id="carInterest" name="Car of interest" type="text" required
+           placeholder="e.g. 1991 Toyota Celica GT-Four"
+           style="width:100%; box-sizing:border-box; padding:12px; margin:8px 0 16px;">
+
+    <label for="buyerMessage">Your message</label>
+    <textarea id="buyerMessage" name="Message" rows="4" required
+              style="width:100%; box-sizing:border-box; padding:12px; margin:8px 0 16px;"></textarea>
+
+    <button type="submit"
+            style="width:100%; padding:14px; background:#d4af37; color:#111; border:0; border-radius:6px; font-weight:bold;">
+      Send Inquiry
+    </button>
+
+  </form>
+
+  <p style="font-size:12px; color:#ccc; text-align:center;">
+    Sending an inquiry does not reserve a vehicle or guarantee availability.
+  </p>
+
+</section>
 
 </body>
 </html>
